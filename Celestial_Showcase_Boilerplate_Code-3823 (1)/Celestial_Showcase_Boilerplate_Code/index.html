@@ -1,0 +1,143 @@
+<!-- =========================
+     CELESTIAL SHOWCASE (HTML BOILERPLATE)
+     Only structure + placeholders + comments
+     ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 1) Basic page setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 2) Browser tab title -->
+  <title>NASA Astronomy Picture of the Day</title>
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 5) When the page loads, call a JS function to show today's APOD -->
+<body onload="loadCurrentDateAPOD()">
+
+  <!-- =========================
+       BACKGROUND VIDEO
+       ========================= -->
+  <!-- Full-screen looping video behind the page -->
+  <video id="video-background" autoplay muted loop>
+    <!-- Replace with your video file name -->
+    <source src="YOUR_VIDEO.mp4" type="video/mp4" />
+    <!-- Fallback text if video doesn't work -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <!-- Website title / brand -->
+      <a class="navbar-brand p_title" href="#">
+        <!-- Replace text with your brand name -->
+        CELESTIAL SHOWCASE
+      </a>
+    </div>
+  </nav>
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+  <header class="h4 text-light p-2">
+    <!-- Welcome message (can be 2 lines) -->
+    Welcome to Celestial Showcase<br />
+    Web Development with NASA's Astronomy Picture of the Day
+  </header>
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+  <main class="container my-5">
+
+    <!-- ---------- SECTION 1: Intro + Controls ---------- -->
+    <section class="text-center mb-5">
+
+      <!-- Intro text card (glass effect) -->
+      <article class="glass text-white p-3 mb-4">
+        <!-- Write a short explanation about APOD here -->
+        <!-- Example: APOD gives one space picture every day + explanation -->
+      </article>
+
+      <!-- Controls row: Random button + Date picker -->
+      <div class="row justify-content-center">
+
+        <!-- Random APOD button column -->
+        <div class="col-md-5 mb-2 mb-md-0">
+          <!-- When clicked, loads a random APOD -->
+          <button class="btn btn-dark btn-lg btn-block" onclick="loadAPODData()">
+            Discover Random APOD
+          </button>
+        </div>
+
+        <!-- Date picker column -->
+        <div class="col-md-5">
+          <div class="input-group date">
+            <!-- Date input -->
+            <!-- JS will set max and default value -->
+            <input
+              type="date"
+              id="datePicker"
+              class="form-control border-0"
+              min="1995-06-16"
+              max=""
+              value=""
+            />
+
+            <!-- Button to load selected date -->
+            <div class="input-group-append">
+              <button class="btn btn-dark btn-block" onclick="loadSelectedDateAPOD()">
+                Selected Date
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ---------- SECTION 2: APOD DISPLAY CARD ---------- -->
+    <section class="card mx-auto my-auto text-white" style="max-width: 1080px;">
+      <!-- Title of the APOD (filled by JS) -->
+      <h5 class="card-header text-center" id="apodTitle"></h5>
+
+      <!-- Image area (JS sets background-image in CSS) -->
+      <div id="apodImage"></div>
+
+      <!-- Description area -->
+      <div class="card-body">
+        <!-- Date text (filled by JS) -->
+        <h6 class="text-left mb-2 text-white" id="apodDate"></h6>
+
+        <!-- Explanation text (filled by JS) -->
+        <p class="card-text" id="apodDescription"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+  <footer class="glass">
+    <!-- Footer text -->
+    Copyright © Celestial Showcase - All Rights Reserved
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+  <!-- Link your script.js here -->
+  <script src="script.js"></script>
+
+</body>
+</html>

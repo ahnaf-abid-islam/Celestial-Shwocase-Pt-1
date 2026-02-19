@@ -1,0 +1,243 @@
+/*
+Celestial Showcase UI (CSS Boilerplate for Students)
+Goal: Build a responsive “glassmorphism” NASA APOD page with readable text, a centered navbar,
+a date input that looks cool, and an APOD image area that adapts to screen size.
+
+
+
+/* ---------- 1) Responsive Base Font (Root Scaling) ---------- */
+html {
+  font-size: 16px;
+}
+
+/* TODO 2: For small screens (phones), reduce the base font-size */
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* TODO 3: For tablets and above, bring it back to normal */
+@media (min-width: 768px) {
+  html {
+     font-size: 16px; 
+  }
+}
+
+/* TODO 4: For laptops, slightly increase font-size */
+@media (min-width: 992px) {
+  html {
+     font-size: 18px; 
+  }
+}
+
+/* TODO 5: For large desktops, make font-size larger */
+@media (min-width: 1200px) {
+  html {
+     font-size: 20px; 
+  }
+}
+
+/* ---------- 2) Layout Container ---------- */
+.container {
+  /* TODO 6: Limit page width so content doesn’t stretch too far */
+  max-width: 900px; 
+
+  /* TODO 7: Center container */
+  margin: 0 auto; 
+}
+
+/* ---------- 3) Typography ---------- */
+h1 {
+  /* TODO 8: Set heading size using rem (responsive with html font-size) */
+  font-size: 2rem; 
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  /* TODO 10: Set paragraph size */
+  font-size: 1rem; 
+}
+
+/* ---------- 4) Navbar (Glass Effect) ---------- */
+.navbar {
+  /* TODO 11: Make a “glass” background */
+ 
+     background: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+
+  /* TODO 12: Add spacing below navbar */
+ margin-bottom: 20px; 
+
+  /*TODO 13: Center navbar content */
+   justify-content: center; 
+}
+
+.navbar-brand {
+  /* TODO 14: Center the brand/logo text */
+
+     display: flex;
+     justify-content: center;
+     width: 100%;
+
+}
+
+.nav-link {
+  /* TODO 15: Make links white + smooth hover */
+
+     color: #fff;
+     transition: color 0.3s ease;
+ 
+}
+
+.nav-link:hover {
+  /* TODO 16: Slightly fade link color on hover */
+  background: rgba(255, 255, 255, 0.7) ;
+}
+
+/* ---------- 5) Header + Footer ---------- */
+header,
+footer {
+  /* TODO 17: Add padding and center text */
+     padding: 10px 0;
+     text-align: center;
+     color: white;
+}
+
+/* ---------- 6) Buttons (Glow on Hover) ---------- */
+button,
+.btn {
+  /* TODO 18: Style buttons with white text and a soft border */
+     color: #fff;
+     padding: 0.5rem 1rem;
+     font-size: 0.9rem;
+     border: 2px solid rgba(255, 255, 255, 0.3);
+     transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  /* TODO 19: Make the border brighter and add glow on hover */
+
+     border-color: rgba(255, 255, 255, 0.5);
+     box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- 7) Date Input Group (Glass Panel) ---------- */
+.input-group.date {
+  /* TODO 20: Create a dark glass card look */
+
+     background: rgba(0, 0, 0, 0.16);
+     border-radius: 16px;
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+     backdrop-filter: blur(10.2px);
+     border: 1px solid rgba(0, 0, 0, 0.08);
+
+}
+
+.input-group.date .form-control {
+  /* TODO 21: Make the input transparent with white text */
+
+     background: transparent;
+     color: #fff;
+     box-shadow: none;
+     border: 2px solid rgba(255, 255, 255, 0.3);
+     transition: all 0.3s ease;
+}
+
+/* ---------- 8) Date Picker Input (Hover + Focus Glow) ---------- */
+input[type="date"] {
+  /* TODO 22: Match the glass input style */
+     color: white;
+     background-color: transparent;
+     border: 2px solid rgba(255, 255, 255, 0.3);
+     transition: all 0.3s ease;
+}
+
+input[type="date"]:hover,
+input[type="date"]:focus {
+
+     border-color: rgba(255, 255, 255, 0.5);
+     box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  /* TODO 24: Make calendar icon visible on dark background */
+     filter: invert(1);
+     opacity: 1;
+     cursor: pointer;
+}
+
+/* ---------- 9) Glass Cards (Reusable Style) ---------- */
+.card,
+.glass {
+  /* TODO 25: Reusable glass panel style for cards */
+     background: rgba(0, 0, 0, 0.16);
+     border-radius: 16px;
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+     backdrop-filter: blur(15px);
+     border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- 10) APOD Image Area ---------- */
+#apodImage {
+  /* TODO 26: Make the APOD background image fit nicely */
+
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat;
+
+
+  /* TODO 27: Set a minimum height so the image area is visible */
+ min-height: 200px; 
+}
+
+/* TODO 28: Adjust APOD image area heights for different screen sizes */
+@media (max-width: 576px) {
+  #apodImage {
+     min-height: 200px; 
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  #apodImage {
+    min-height: 300px; 
+  }
+}
+
+@media (min-width: 769px) {
+  #apodImage {
+     min-height: 400px; 
+  }
+}
+
+/* ---------- 11) Layering / Readability ---------- */
+.navbar,
+.h3,
+.container {
+  /* TODO 29: Ensure content stays above the video background */
+
+     z-index: 1;
+     color: white;
+  
+}
+
+/* ---------- 12) Video Background ---------- */
+#video-background {
+  /* TODO 30: Fix video to cover the full screen behind everything */
+
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     z-index: -1;
+
+}
