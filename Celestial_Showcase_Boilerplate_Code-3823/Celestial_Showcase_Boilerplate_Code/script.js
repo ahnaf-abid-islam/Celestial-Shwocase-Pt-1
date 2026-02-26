@@ -8,7 +8,7 @@
    Keep it as a constant so we can use it in the endpoint.
 ---------------------------------- */
 
-// const API_KEY = "YOUR_NASA_API_KEY_HERE";
+ const API_KEY = "YOUR_NASA_API_KEY_HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";
 
 
 /* ---------- 1) initializeDatepicker() ----------
@@ -18,15 +18,19 @@
 ---------------------------------------------- */
 
 function initializeDatepicker() {
-  // Create a Date object for today's date
+  
+  const today = new Date();
 
-  // Convert today into "YYYY-MM-DD" format using formatDate()
+  const formattedToday = formatDate(today);
 
-  // (Optional) Log the formatted date to console for debugging
+  const datePicker = document.getElementById('datePicker');
 
-  // Set datePicker.max to today's date (so future dates are blocked)
+  datePicker.max = formattedToday;
 
-  // Set datePicker.value to today's date (so it auto-selects today)
+  datePicker.value = formattedToday;
+
+  console.log('Date Picker initialized:', formattedToday);
+
 }
 
 
@@ -37,17 +41,19 @@ function initializeDatepicker() {
 ---------------------------------------- */
 
 function getRandomDate() {
-  // Create start date (1995-06-16)
+  
+  const start = new Date('1995-06-16')
 
-  // Create end date (today)
+  const end = new Date();
 
-  // Generate a random time number between start and end
+  const randomTime = start.getTime() +
 
-  // Convert that random time into a Date object
+  Math.random() * (end.getTime() - start.getTime());
 
-  // (Optional) Log the random date for debugging
+  const randomDate = new Date(randomTime);
 
-  // Return the random Date object
+  console.log('Random APOD date:', forwardDate(randomDate));
+
 }
 
 
@@ -59,17 +65,15 @@ function getRandomDate() {
 ---------------------------------------- */
 
 function formatDate(date) {
-  // Get year (YYYY)
 
-  // Get month (MM) and add 1 (because months start from 0)
+  const yyyy = date.getFullYear();
 
-  // Make sure month has 2 digits (padStart)
+  const mm = (date.getMonth() + 1).toString().padStart(2, '0');
 
-  // Get day (DD)
+  const dd = date.getDate().toString().padStart(2, '0');
 
-  // Make sure day has 2 digits (padStart)
+  return  `${yyyy}-${mm}-${dd}`;
 
-  // Return formatted string: "YYYY-MM-DD"
 }
 
 
