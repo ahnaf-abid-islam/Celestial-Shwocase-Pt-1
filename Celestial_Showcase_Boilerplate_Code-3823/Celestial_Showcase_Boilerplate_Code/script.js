@@ -8,7 +8,7 @@
    Keep it as a constant so we can use it in the endpoint.
 ---------------------------------- */
 
- const API_KEY = "YOUR_NASA_API_KEY_HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";
+ const API_KEY = "HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";
 
 
 /* ---------- 1) initializeDatepicker() ----------
@@ -89,22 +89,18 @@ function formatDate(date) {
 
 async function fetchAPODData(date) {
   try {
-    // Build the endpoint URL using the date + API_KEY
+   const endpoint = `https://api.nasa.gov/planetary/apod
 
-    // (Optional) Log which date we are fetching
+?date=${date}&api_key=${API_KEY}`;
 
-    // Fetch data from the endpoint (await fetch)
+   const response = await fetch(endpoint)
 
-    // (Optional) Log full response for debugging
+   const data = await response.json();
 
-    // Convert response into JSON (await response.json)
+   updateUI(data, date);
 
-    // (Optional) Log received data for debugging
-
-    // Call updateUI(data, date) to show data on the page
   } catch (error) {
-    // If something goes wrong, show error in console
-  }
+     console.error('Error fetching data:', error);
 }
 
 
@@ -119,16 +115,22 @@ async function fetchAPODData(date) {
 ------------------------------------------- */
 
 function updateUI(data, date) {
-  // (Optional) Log that UI is being updated
+  document.getElementById('apodImage')
 
-  // Set #apodImage background image using:
-  // data.hdurl (or data.url as backup)
+    .style.backgroundImage = `url('$(data.url)')`;
 
-  // Set #apodDescription text using data.explanation
+  document.getElementById('apodTitle')
 
-  // Set #apodDate text using the chosen date
+    .textContent = data.title;
 
-  // Set #apodTitle text using data.title
+  document.getElementById('apodDate')
+
+    .textContent = `Date: ${data}`;
+
+  document.getElementById('apodDescription')
+
+    .textContent = data.explanation;
+
 }
 
 

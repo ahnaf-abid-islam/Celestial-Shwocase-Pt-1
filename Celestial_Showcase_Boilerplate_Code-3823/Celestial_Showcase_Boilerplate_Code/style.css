@@ -72,7 +72,7 @@ p {
 
 
   /* TODO 12: Add spacing below navbar */
- margin-bottom: 20px; 
+    margin-bottom: 20px; 
 
   /*TODO 13: Center navbar content */
    justify-content: center; 
@@ -241,3 +241,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
      z-index: -1;
 
 }
+
