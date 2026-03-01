@@ -1,8 +1,6 @@
 
 
- const API_KEY = "HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";
-
-            
+ const API_KEY = "HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";       
 
 function initializeDatepicker() {
   
@@ -90,16 +88,6 @@ async function fetchAPODData(date) {
      console.error('Error fetching data:', error);
 }
 
-
-/* ---------- 5) updateUI(data, date) ----------
-   Goal:
-   - Put NASA data into the webpage
-   Updates:
-   - Background image (#apodImage)
-   - Title (#apodTitle)
-   - Date (#apodDate)
-   - Description (#apodDescription)
-------------------------------------------- */
 
 function updateUI(data, date) {
   document.getElementById('apodImage')
