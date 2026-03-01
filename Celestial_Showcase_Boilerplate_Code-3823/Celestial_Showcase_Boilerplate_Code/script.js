@@ -3,11 +3,6 @@
  const API_KEY = "HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";
 
             
-/* ---------- 1) initializeDatepicker() ----------
-   Goal:
-   - Set the date picker to today
-   - Prevent choosing future dates
----------------------------------------------- */
 
 function initializeDatepicker() {
   
