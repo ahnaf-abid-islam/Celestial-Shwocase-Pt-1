@@ -1,16 +1,8 @@
-/* =========================
-   CELESTIAL SHOWCASE (JS BOILERPLATE)
-   Same structure, comments-only + placeholders
-   ========================= */
 
-/* ---------- 0) API KEY ----------
-   This will be added in Lesson 4.
-   Keep it as a constant so we can use it in the endpoint.
----------------------------------- */
 
  const API_KEY = "HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";
 
-
+            
 /* ---------- 1) initializeDatepicker() ----------
    Goal:
    - Set the date picker to today
