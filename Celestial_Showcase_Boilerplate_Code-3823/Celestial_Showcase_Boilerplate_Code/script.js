@@ -1,6 +1,6 @@
 
 
- const API_KEY = "HEREhZxpi3TP7Zz4fbKSNFwS5Q5qias1FDrOBAtfglmh";       
+const API_KEY = "I7Md4d6wo2TagdY7BwQ2Xm3SM77VrtQ9v1ldfTI2";       
 
 function initializeDatepicker() {
   
@@ -87,7 +87,7 @@ async function fetchAPODData(date) {
   } catch (error) {
      console.error('Error fetching data:', error);
 }
-
+}
 
 function updateUI(data, date) {
   document.getElementById('apodImage')
@@ -109,37 +109,22 @@ function updateUI(data, date) {
 }
 
 
-/* ---------- 6) loadAPODData() ----------
-   Goal:
-   - Load a random APOD image
-   Steps:
-   - Get random Date object
-   - Format it
-   - Fetch NASA data for that date
--------------------------------------- */
 
 async function loadAPODData() {
-  // Get a random Date object using getRandomDate()
+    const random = formatDate(getRandomDate());
 
-  // Format it using formatDate()
+    console.log('Loading APOD data for a random date:', randomDate);
 
-  // (Optional) Log which random date is being loaded
+    await fetchAPODData(randomDate);
 
-  // Await fetchAPODData(formattedRandomDate)
 }
 
-
-/* ---------- 7) loadSelectedDateAPOD() ----------
-   Goal:
-   - Load APOD data for the date the user selected
----------------------------------------------- */
-
 async function loadSelectedDateAPOD() {
-  // Read the value from #datePicker
+    const selectDate = document.getElementById('datePicker').value;
 
-  // (Optional) Log the selected date
+    console.log('Loading APOD data for selected date:', selectedDate);
 
-  // Await fetchAPODData(selectedDate)
+    await fetchAPODData(selectedDate);
 }
 
 
@@ -152,13 +137,12 @@ async function loadSelectedDateAPOD() {
 ------------------------------------------- */
 
 async function loadCurrentDateAPOD() {
-  // Call initializeDatepicker() first
+  initializeDatepicker();
 
-  // Create today's Date object
+  const currentDate = formatDate(new Date());
 
-  // Format it using formatDate()
+  console.log('Loading APOD data for the current date', currentDate);
 
-  // (Optional) Log today's date
-
-  // Await fetchAPODData(formattedToday)
+  await fetchAPODData(currentDate);
+  
 }
